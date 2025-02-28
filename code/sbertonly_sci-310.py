@@ -15,13 +15,13 @@ import time
 def load_required_files_and_display_data():
     # Load the sci310_Top-Sents_Set-per-Question.csv file
     # qno,Questions,new_paratext
-    set_per_question = "270824_sci310_Top-Sents_Set-per-Question.csv"
+    set_per_question = "sci310_Top-Sents_Set-per-Question.csv"
     print(f'Loading the {set_per_question} file...')
     df = pd.read_csv(f"./data/{set_per_question}")
 
     # Load the sci310_QuestionType.csv file
     # No.,qno,Ans1,Ans2,Ans3,Ans4,Correct Ans,Question Type,Question Sentence
-    question_type = "270824_sci310_QuestionType.csv"
+    question_type = "sci310_QuestionType.csv"
     print(f'Loading the {question_type} file...')
     qtype_df = pd.read_csv(f"./data/{question_type}")
 
@@ -53,7 +53,7 @@ def load_required_files_and_display_data():
     logging.info(f"ast.literal_eval(df['new_paratext'][0]):\n{ast.literal_eval(df['new_paratext'][0])}\n")
 
     # qno, Question, Ans1, Ans2, Ans3, Ans4, support and correct_answer columns
-    sci_para_mcqframed = "270824_Sci-Para-mcqframed-Data-310.xlsx"
+    sci_para_mcqframed = "Sci-Para-mcqframed-Data-310.xlsx"
     print(f'Loading and checking the {sci_para_mcqframed} file...')
     qns = pd.read_excel(f'./data/{sci_para_mcqframed}')
 

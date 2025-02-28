@@ -76,18 +76,18 @@ def load_required_files_and_display_data() -> Union[pd.DataFrame, list, pd.DataF
 
     Notes:
         The following files are required:
-            270824_sci310_Top-Sents_Set-per-Question.csv
-            270824_sci310_QuestionType.csv
-            060924_310_mcq.json
-            060924_answers-annots_310.
-            060924_annotations-para_310.json
+            sci310_Top-Sents_Set-per-Question.csv
+            sci310_QuestionType.csv
+            310_mcq.json
+            answers-annots_310.
+            annotations-para_310.json
 
     Returns:
         df, all_sent, qtype_df, qtypes, mcq, finalmcq, finalpara, adjustedIndex
     """
     print('\033[1;33mLoading required files...\033[0m')
     # Read the sci310_Top-Sents_Set-per-Question.csv file into paras_df DataFrame
-    set_per_q_file = "270824_sci310_Top-Sents_Set-per-Question.csv"
+    set_per_q_file = "sci310_Top-Sents_Set-per-Question.csv"
     print(f'\033[0;33mLoading {set_per_q_file}...\033[0m')
     paras_df = pd.read_csv(f"./data/{set_per_q_file}")
     # Make a copy of paras_df into the df DataFrame
@@ -105,7 +105,7 @@ def load_required_files_and_display_data() -> Union[pd.DataFrame, list, pd.DataF
         j = i.lower()
         sentences_eachpara = j.split(".")
         all_sent.append(sentences_eachpara)  #index 0 para 1, indeexx 1 para 2 related sentences...
-    question_type_file = "270824_sci310_QuestionType.csv"
+    question_type_file = "sci310_QuestionType.csv"
     print(f'\033[0;33mLoading {question_type_file}...\033[0m')
     qtype_df = pd.read_csv(f"./data/{question_type_file}")
     # Get the Question Type value for each entry in the sci310_QuestionType.csv file
@@ -144,18 +144,18 @@ def load_required_files_and_display_data() -> Union[pd.DataFrame, list, pd.DataF
     print(f'Number of \'other\' questions: {count_dict_all_categories["where"] + count_dict_all_categories["who"] + count_dict_all_categories["when"]}\033[0m')
 
     # Load 310_mcq.json
-    print(f'\033[0;33mLoading 060924_310_mcq.json...\033[0m')
-    f = open('./data/060924_310_mcq.json')
+    print(f'\033[0;33mLoading 310_mcq.json...\033[0m')
+    f = open('./data/310_mcq.json')
     mcq = json.load(f)
 
     # Load answers-annots_310.json
-    print(f'\033[0;33mLoading 060924_answers-annots_310.json...\033[0m')
-    f = open('./data/060924_answers-annots_310.json')
+    print(f'\033[0;33mLoading answers-annots_310.json...\033[0m')
+    f = open('./data/answers-annots_310.json')
     finalmcq = json.load(f)
     
     # Load annotations-para_310.json
-    print(f'\033[0;33mLoading 060924_annotations-para_310.json...\033[0m')
-    f = open('./data/060924_annotations-para_310.json')
+    print(f'\033[0;33mLoading annotations-para_310.json...\033[0m')
+    f = open('./data/annotations-para_310.json')
     finalpara = json.load(f)
 
     # Update the 'mcq' variable to hold just the first item from the original JSON.
